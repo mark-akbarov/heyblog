@@ -8,13 +8,6 @@ from django.views.generic import (
 from .models import Blog
 
 
-def home(request):
-    context = {
-        'blogs': Blog.objects.all()
-    }
-    return render(request, 'blogs/home.html', context)
-
-
 class BlogListView(ListView):
     model = Blog
     template_name = 'blog/home.html'
@@ -24,11 +17,10 @@ class BlogListView(ListView):
 
 class BlogDetailView(DetailView):
     model = Blog
-
+    template_name = 'blog/blog_detail.html'
 
 class BlogCreateView(CreateView):
     model = Blog 
-    template_name = 'blog/blog_create.html'
     fields = ['title', 'body']
 
     def form_valid(self, form):
@@ -38,8 +30,8 @@ class BlogCreateView(CreateView):
 
 class BlogUpdateView(UpdateView):
     model = Blog
-    fields = ['title', 'body']
     template_name = 'blog/blog_update.html'
+    fields = ['title', 'body']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -48,7 +40,7 @@ class BlogUpdateView(UpdateView):
 
 class BlogDeleteView(DeleteView):
     model = Blog
-    success_url = '/'
     template_name = 'blog/blog_delete_confirm.html'
+    success_url = '/'
 
 
