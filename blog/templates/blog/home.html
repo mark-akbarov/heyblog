@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+  <a href="{% url 'blog_create' %}">
+  <li class="nav-item" role="presentation">  
+      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">+New</button>
+    </li>
+  </a>
+ 
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Login</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Signup</button>
+    </li>
+</ul>
+{% for blog in object_list %}
+    <div class="card text-center" style="box-shadow: 2px 2px 5px rgb(182, 179, 179);">
+        <div class="card-body">
+            <h3 class="card-title">{{ blog.title }}</h3>
+            <p class="card-text text-muted"><em>by {{ blog.author }}</em></p>
+        <p class="card-text">{{ blog.body|linebreaksbr|slice:"400" }}...</p>
+        <a href="{% url 'blog_detail' blog.id %}" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+{% endfor %}
+{% endblock content %}

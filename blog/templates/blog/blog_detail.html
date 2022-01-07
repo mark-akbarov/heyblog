@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="detail_text" style="margin: 1em;">
+        <div style="text-align: center;">
+            <h2>{{ blog.title }}</h2>
+            <em>by  {{ blog.author }}</em>
+        </div>
+        <p style="margin-top: 2em;">{{ blog.body }}</p>
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <a href="{% url 'blog_update' object.id %}">
+            <li class="nav-item" role="presentation">  
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Edit</button>
+              </li>
+            </a>
+            <a href="{% url 'blog_delete' object.id %}">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Delete</button>
+              </li>
+            </a>
+        </ul>
+</div>
+{% endblock content %}
