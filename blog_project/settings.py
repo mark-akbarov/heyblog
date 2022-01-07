@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     #3rd party
     'crispy_forms',
-    'whitenoise.runserver_nostatic',
     
     #Local
     'blog.apps.BlogConfig',
@@ -51,7 +50,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.runserver_nostatic',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
