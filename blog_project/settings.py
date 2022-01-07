@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5jfm+s0a)rqrh9lwk3z^#s661z!#=9@e64%n+4_1_2)cz+bv@m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     #3rd party
     'crispy_forms',
-
+    
     #Local
     'blog.apps.BlogConfig',
 ]
