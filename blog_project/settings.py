@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     
     #Local
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -59,7 +60,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog_project.urls'
 
-import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -134,3 +134,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
