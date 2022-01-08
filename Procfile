@@ -1,1 +1,1 @@
-web: gunicorn heyblog.wsgi --log-file -
+web: gunicorn heyblog.wsgi
