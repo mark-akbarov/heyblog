@@ -32,12 +32,13 @@
 
   </head>
   <body>
-      <ul class="nav justify-content-center">
+      <ul class="nav justify-content-center navbar-light bg-light">
         <li class="nav-item">
-          <h2><a class="nav-link active" aria-current="page" href="{% url 'home' %}">HeyBlog</a></h2>
+          <h2>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">HeyBlog</a>
+          </h2>
         </li>
       </ul>
-      <hr>
       
     <main>
         {% block content %}
