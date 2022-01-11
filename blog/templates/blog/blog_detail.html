@@ -8,7 +8,7 @@
         </div>
         <p style="padding: 2em;"">{{ blog.body }}</p>
         <p style="text-align: center;"><em>by  {{ blog.author }}</em></p>
-        {% if user.id == self.id %}
+        {% if object.author == user %}
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
             <a href="{% url 'blog_update' object.id %}">
             <li class="nav-item" role="presentation">  
