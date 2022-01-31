@@ -3,8 +3,8 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 class Blog(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
+    title = models.CharField(max_length=150)
+    text = models.CharField(max_length=280)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
     get_user_model(),
