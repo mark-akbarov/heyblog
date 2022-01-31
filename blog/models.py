@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Blog(models.Model):
     title = models.CharField(max_length=150)
-    text = models.CharField(max_length=280)
+    text = models.CharField(max_length=280, default='100')
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
     get_user_model(),
