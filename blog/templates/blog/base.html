@@ -13,7 +13,7 @@
       body{
         width: 50%;
         margin: 0 auto;
-        background-color: #f0f0f0;
+        background-color: #000000;
       }
 
       div.card{
@@ -44,13 +44,16 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav" style="font-size: 16px;">
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'blog_create' %}">New+</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'blog_create' %}">Post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
             </li>
             {% else %}
             <li class="nav-item">

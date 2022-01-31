@@ -1,14 +1,18 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <div class="detail_text" >
-        <div class="card mb-0">
-          <div class="card-body" >
-              <p class="card-text text-muted">@{{ blog.author }}</p>
-              <p class="card-text title" >Posted on {{ blog.date|date:"F d, Y" }}</p>
-              <strong><p class="card-title">{{ blog.title }}</p></strong>
-              <p class="card-text">{{ blog.text }}</p>
+      <div class="card mb-3" style="background-color: rgb(25, 25, 25);">
+        <div class="card-body" >
+            <p class="card-text text-muted" style="font-size: 12px; color: white;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 0px;">    @{{ blog.author }} · {{ blog.date|date:"F d, Y" }}</p>
+            <strong><p class="card-title" style="color: white;">{{ blog.title }}</p></strong>
+            {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
+            {% endif %}
+            {% if blog.text %}
+              <p class="card-text" style="color: white;">{{ blog.text }}</p>
+            {% endif %}
           </div>
-        </div>
+    </div>
         {% if object.author == user %}
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
             <a href="{% url 'blog_update' object.id %}">Edit</a>

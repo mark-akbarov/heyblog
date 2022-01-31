@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ user.profile.image.url }}" class="card-img-top" alt="profile pic">
+        <div class="card-body">
+            <p class="card-text">Username: @{{ user.username }}</p>
+            <p class="card-text">Email: {{ user.email }}</p>
+        </div>
+    </div>
+{% endblock content %}
