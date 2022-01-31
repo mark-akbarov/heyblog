@@ -3,16 +3,14 @@
 
 
 {% for blog in object_list %}
-    <div class="card shadow mb-3">
-        <div class="card-body" >
-            <h3 class="card-title text-center">{{ blog.title }}</h3>
-            <p class="card-text text-muted text-center">
-                <em>by {{ blog.author }}<em>
-            </p>
-        <p class="card-text">{{ blog.body|linebreaksbr|slice:"255" }}...</p>
-        <div class="text-center"><a href="{% url 'blog_detail' blog.id %}" 
-            class="btn btn-outline-dark rounded-pill">Read more</a></div>
+    <a href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black;">
+        <div class="card mb-3">
+            <div class="card-body" >
+                <p class="card-text text-muted" style="font-size: 12px;">@{{ blog.author }} · {{ blog.date|date:"F d, Y" }}</p>
+                <strong><p class="card-title">{{ blog.title }}</p></strong>
+                <p class="card-text">{{ blog.text }}</p>
+            </div>
         </div>
-    </div>
+    </a>
 {% endfor %}
 {% endblock content %}

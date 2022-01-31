@@ -8,7 +8,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import (
 LoginRequiredMixin, UserPassesTestMixin 
 )
-from .models import Blog
+from .models import Blog, Comment
 
 
 class BlogListView(ListView):
@@ -27,7 +27,7 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog 
-    fields = ['title', 'body']
+    fields = ['title', 'text']
     login_url = 'login'
 
     def form_valid(self, form):
@@ -38,7 +38,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Blog
     template_name = 'blog/blog_update.html'
-    fields = ['title', 'body']
+    fields = ['title', 'text']
     login_url = 'login'
 
     def form_valid(self, form):

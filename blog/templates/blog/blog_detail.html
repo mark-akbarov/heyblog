@@ -1,25 +1,18 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class="detail_text" style="margin: 1em;">
-  <a href="{% url 'home' %}" style="text-decoration: none;" > ← Back </a>
-        <div style="text-align: center;">
-            <h2>{{ blog.title }}</h2>
-            <p>{{ blog.date|date:"F d, Y" }}</p>
+<div class="detail_text" >
+        <div class="card mb-0">
+          <div class="card-body" >
+              <p class="card-text text-muted">@{{ blog.author }}</p>
+              <p class="card-text title" >Posted on {{ blog.date|date:"F d, Y" }}</p>
+              <strong><p class="card-title">{{ blog.title }}</p></strong>
+              <p class="card-text">{{ blog.text }}</p>
+          </div>
         </div>
-        <p style="padding: 2em;"">{{ blog.body }}</p>
-        <p style="text-align: center;"><em>by  {{ blog.author }}</em></p>
         {% if object.author == user %}
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-            <a href="{% url 'blog_update' object.id %}">
-            <li class="nav-item" role="presentation">  
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Edit</button>
-              </li>
-            </a>
-            <a href="{% url 'blog_delete' object.id %}" style="text-decoration: none;">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Delete</button>
-              </li>
-            </a>
+            <a href="{% url 'blog_update' object.id %}">Edit</a>
+            <a href="{% url 'blog_delete' object.id %}">Delete</a>
         </ul>
         {% endif %}
 </div>
