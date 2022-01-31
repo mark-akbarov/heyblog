@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <div class="detail_text" style="margin: 1em;">
-  <a href="{% url 'home' %}" style="text-decoration: none;" class="btn btn-primary"> < Back </a>
+  <a href="{% url 'home' %}" style="text-decoration: none;" > ← Back </a>
         <div style="text-align: center;">
             <h2>{{ blog.title }}</h2>
             <p>{{ blog.date|date:"F d, Y" }}</p>

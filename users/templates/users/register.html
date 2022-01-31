@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class='content-section'>
+    <div class='content-section text-white w-50 mt-3'>
         <form method='POST'>
             {% csrf_token %}
             <fieldset>
@@ -12,7 +12,7 @@
                 <button class='btn btn-outline-success' type='submit'>Sign Up</button>
             </div>
         </form>
-        <div class='border-top pt-3' style="margin-bottom: 3em;">
+        <div class='border-top pt-3 mt-3' style="margin-bottom: 3em;">
             <small class="text-muted"> 
                 Already Have An Account? <a class='ml-2' href='{% url "login" %}'>Sign In Here</a>
             </small>
