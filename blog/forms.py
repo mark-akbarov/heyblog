@@ -1,7 +1,7 @@
 from django import forms
-from .models import Comment, Blog
+from .models import BlogComment
 
-class CommentForm(forms.ModelForm):
+class BlogCommentForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('name', 'email', 'body', 'image')
+        model = BlogComment
+        fields = ('author', 'content',)
