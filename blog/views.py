@@ -28,8 +28,7 @@ class BlogDetailView(DetailView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
 
-        comments_connected = BlogComment.objects.filter(
-            blogpost_connected=self.get_object()).order_by('-date_posted')
+        comments_connected = BlogComment.objects.filter(blogpost_connected=self.get_object()).order_by('-date_posted')
         data['comments'] = comments_connected
         if self.request.user.is_authenticated:
             data['comment_form'] = BlogCommentForm(instance=self.request.user)
