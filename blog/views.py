@@ -36,9 +36,7 @@ class BlogDetailView(DetailView):
         return data
 
     def post(self, request, *args, **kwargs):
-        new_comment = Blog(content=request.POST.get('content'),
-                                  author=self.request.user,
-                                  blogpost_connected=self.get_object())
+        new_comment = Blog(content=request.POST.get('content'), author=self.request.user, blogpost_connected=self.get_object())
         new_comment.save()
         return self.get(self, request, *args, **kwargs)
 
