@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 
+
 class Blog(models.Model):
     title = models.CharField(max_length=150, default='Interesting Title')
     text = models.CharField(max_length=280, default='Text', blank=True, null=True)

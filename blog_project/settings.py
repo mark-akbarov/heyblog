@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #3rd party
+    'ckeditor',
     'crispy_forms',
-    'whitenoise.runserver_nostatic',
     'taggit',
     
     #Local
