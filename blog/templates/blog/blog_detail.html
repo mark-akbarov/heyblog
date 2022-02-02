@@ -3,7 +3,10 @@
 <div class="detail_text" >
       <div class="card mb-3">
         <div class="card-body" >
-            <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 0px;">    @{{ blog.author }} · {{ blog.date|date:"F d, Y" }}</p>
+            <p class="card-text text-muted" style="font-size: 12px;">
+              <img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 0px;">
+                  @{{ blog.author }} · {{ blog.date|date:"F d, Y" }}
+            </p>
             <strong><p class="card-title" >{{ blog.title }}</p></strong>
             {% if blog.image %}
                 <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
@@ -15,24 +18,12 @@
       </div>
         {% if object.author == user %}
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-            <a href="{% url 'blog_update' object.id %}">Edit</a>
-            <a href="{% url 'blog_delete' object.id %}">Delete</a>
+            <a type="button" class="btn btn-primary btn-sm" href="{% url 'blog_update' object.id %}">Edit</a>
+            <a type="button" class="btn btn-danger btn-sm ms-3" href="{% url 'blog_delete' object.id %}">Delete</a>
         </ul>
         {% endif %}
-      
-
-      {% if user.is_authenticated %}
-        <form method="POST">
-          {% csrf_token %}
-          <div class="form-group">
-            {{ comment_form }}
-            <button class="btn btn-danger mt-3 mb-3" type="submit">Add comment <i class="fas fa-comments"></i></button>
-          </div>
-        </form>
-        {% else %}
-        <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
-      {% endif %}
-
+        
+        <a type="button" class="btn btn-primary btn-sm" href="{% url 'add_comment' %}">Add Comment</a>
 
         {% if comments %}
         <strong class="text-muted">{{ object.number_of_comments }} Comment{{ object.number_of_comments|pluralize }}</strong>

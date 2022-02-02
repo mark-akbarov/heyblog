@@ -11,28 +11,29 @@
 
     <style>
       body{
-        width: 50%;
-        margin: 0 auto;
-        background-color: #ececec;
+        background-color: #000000;
+      }
+      .grid-container{
+        display: grid;
+        grid-template-columns: 10% 50% 30%;
+      }
+
+      .grid-container>div{
+        margin: 0 5px;
+        align-items: center;
       }
 
       div.card{
         margin-top: 1em;
+        background-color: rgb(36, 36, 36);
+        color: white;
       }
-      @media only screen and (max-width: 600px) {
-        body {
-          margin: 0;
-          font-size: 60%;
-        }
 
-        div.card{
-          margin: 0.5em;
-        }
-
-        p.author-title{
-          font-size: 8px;
-        }
+      div.card:hover{
+        background-color: rgb(65, 65, 65);
+        transition: 0.5s;
       }
+
     </style>
 
   </head>
@@ -70,8 +71,42 @@
       </div>
     </nav>
     <main>
-        {% block content %}
-        {% endblock content %}
+      <div class="grid-container">
+        <div></div>
+        <div class="home-container">
+          {% block content %}
+          {% endblock content %}
+        </div>
+        <div class="top-posts-container">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ user.profile.image.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Featured
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+              
+            </ul>
+          </div>
+          <div class="card">
+            <h5 class="card-header">Featured</h5>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+    </div>
     </main>
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -1,3 +1,4 @@
+from dataclasses import field
 from django.db import models
 from django.urls import reverse_lazy
 from django.shortcuts import render
@@ -6,10 +7,12 @@ from django.views.generic import (
     CreateView, UpdateView, 
     DeleteView)
 from django.contrib.auth.mixins import (
-LoginRequiredMixin, UserPassesTestMixin 
+LoginRequiredMixin, 
 )
+
+from blog.forms import BlogCommentForm
 from .models import Blog, BlogComment
-from .forms import BlogCommentForm
+
 
 
 class BlogListView(ListView):
@@ -25,21 +28,6 @@ class BlogDetailView(DetailView):
     template_name = 'blog/blog_detail.html'
     login_url = 'login'
 
-    def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-
-        comments_connected = BlogComment.objects.filter(blogpost_connected=self.get_object()).order_by('-date_posted')
-        data['comments'] = comments_connected
-        if self.request.user.is_authenticated:
-            data['comment_form'] = BlogCommentForm(instance=self.request.user)
-
-        return data
-
-    def post(self, request, *args, **kwargs):
-        new_comment = Blog(content=request.POST.get('content'), author=self.request.user, blogpost_connected=self.get_object())
-        new_comment.save()
-        return self.get(self, request, *args, **kwargs)
-
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog 
@@ -51,7 +39,18 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = BlogComment
+    template_name = 'blog/add_comment.html'
+    form_class = BlogCommentForm
+    success_url = reverse_lazy('blog/blog_detail.html')
+
+    def form_valid(self, form):
+        form.instance.blog = self.kwargs['pk']
+        return super().form_valid(form)
+
+
+class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Blog
     template_name = 'blog/blog_update.html'
     fields = ['title', 'text']
@@ -60,12 +59,24 @@ class BlogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 
-class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class BlogDeleteView(LoginRequiredMixin,  DeleteView):
     model = Blog
     template_name = 'blog/blog_delete_confirm.html'
     success_url = '/'
     login_url = 'login'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 

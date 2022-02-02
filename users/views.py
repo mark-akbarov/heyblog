@@ -7,6 +7,7 @@ from .models import Profile
 
 
 def register(request):
+    player, created = Profile.objects.get_or_create(user=request.user)
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():

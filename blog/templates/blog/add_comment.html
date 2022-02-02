@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    {{ comment_form }}
+    <button class="btn btn-danger mt-3 mb-3" type="submit">Add comment <i class="fas fa-comments"></i></button>
+  </div>
+</form>
+{% else %}
+<a class="btn btn-outline-danger mt-3 mb-3" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
+{% endif %}
+{% endblock content %}
+
