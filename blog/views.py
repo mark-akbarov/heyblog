@@ -1,7 +1,5 @@
-from dataclasses import field
-from django.db import models
 from django.urls import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import (
     ListView, DetailView, 
     CreateView, UpdateView, 
@@ -10,8 +8,8 @@ from django.contrib.auth.mixins import (
 LoginRequiredMixin, 
 )
 
-from blog.forms import BlogCommentForm
-from .models import Blog, BlogComment
+
+from .models import Blog
 
 
 
@@ -29,6 +27,7 @@ class BlogDetailView(DetailView):
     login_url = 'login'
 
 
+
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog 
     fields = ['title', 'text', 'image']
@@ -38,16 +37,6 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
-class CommentCreateView(LoginRequiredMixin, CreateView):
-    model = BlogComment
-    template_name = 'blog/add_comment.html'
-    form_class = BlogCommentForm
-    success_url = reverse_lazy('blog/blog_detail.html')
-
-    def form_valid(self, form):
-        form.instance.blog = self.kwargs['pk']
-        return super().form_valid(form)
 
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):

@@ -12,9 +12,11 @@
                 <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
             {% endif %}
             {% if blog.text %}
+              <br>
+              <br>
               <p class="card-text" ">{{ blog.text }}</p>
             {% endif %}
-          </div>
+        </div>
       </div>
         {% if object.author == user %}
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
@@ -22,31 +24,6 @@
             <a type="button" class="btn btn-danger btn-sm ms-3" href="{% url 'blog_delete' object.id %}">Delete</a>
         </ul>
         {% endif %}
-        
-        <a type="button" class="btn btn-primary btn-sm" href="{% url 'add_comment' %}">Add Comment</a>
 
-        {% if comments %}
-        <strong class="text-muted">{{ object.number_of_comments }} Comment{{ object.number_of_comments|pluralize }}</strong>
-        <hr>
-        <ul>
-          {% for comment in comments %}
-          <li>           
-           <div>
-              <span>
-                <strong class="text-muted">{{ comment.author }} </strong>
-                <small class="text-muted">{{ comment.date_posted }}</small>
-              </span>
-              <p>
-                {{ comment.content|safe }}
-              </p>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-        {% else %}
-          <strong class="text-secondary">No comments yet...</strong>
-        {% endif %}
-      
-      
 </div>
-{% endblock content %}
+{% endblock %}

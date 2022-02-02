@@ -14,11 +14,6 @@
                 {% if blog.text %}
                     <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text }}</p>
                 {% endif %}
-                {% if comments %}
-                    <strong class="text-muted">{{ object.number_of_comments }} Comment{{ object.number_of_comments|pluralize }}</strong>
-                {% else %}
-                     <strong class="text-secondary" style="font-size: 13px;">No Comments</strong>
-                {% endif %}
             </div>
         </div>
     </a>
