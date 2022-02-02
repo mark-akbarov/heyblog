@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 class Blog(models.Model):
     title = models.CharField(max_length=150, default='Interesting Title')
@@ -8,6 +9,7 @@ class Blog(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
+    tags = TaggableManager()
 
     @property
     def number_of_comments(self):

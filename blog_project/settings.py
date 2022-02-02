@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #3rd party
     'crispy_forms',
     'whitenoise.runserver_nostatic',
+    'taggit',
     
     #Local
     'blog.apps.BlogConfig',
