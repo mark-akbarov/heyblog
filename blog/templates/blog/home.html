@@ -12,7 +12,7 @@
                     <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
                 {% endif %}
                 {% if blog.text %}
-                    <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text }}</p>
+                    <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text|safe }}</p>
                 {% endif %}
             </div>
         </div>

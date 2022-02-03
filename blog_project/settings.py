@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #3rd party
-    # 'froala_editor',
+    'tinymce',
     'crispy_forms',
     'taggit',
     

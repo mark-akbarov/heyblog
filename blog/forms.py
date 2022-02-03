@@ -1,5 +1,6 @@
 from django import forms
 from .models import BlogComment
+from tinymce.widgets import TinyMCE
 
 class NewCommentForm(forms.ModelForm):
     content = forms.CharField(label ="", widget = forms.Textarea(

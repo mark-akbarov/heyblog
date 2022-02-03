@@ -14,7 +14,7 @@
             {% if blog.text %}
               <br>
 
-              <p class="card-text">{{ blog.text }}</p>
+              <p class="card-text">{{ blog.text|safe }}</p>
             {% endif %}
         </div>
       </div>

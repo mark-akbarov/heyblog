@@ -1,10 +1,23 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %} 
 {% block content %}
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <img src="{{ user.profile.image.url }}" class="card-img-top" alt="profile pic">
         <div class="card-body">
             <p class="card-text">Username: @{{ user.username }}</p>
             <p class="card-text">Email: {{ user.email }}</p>
         </div>
+        <form method='POST' enctype="multipart/form-data"  style="padding: 1em;">
+            {% csrf_token %}
+            <fieldset>
+                <legend class='border-bottom mb-4'>Profile Info</legend>
+                {{ u_form |crispy }}
+                <br>
+                {{ p_form | crispy }}
+            </fieldset>
+            <div class='form-group'>
+                <button class='btn btn-reddit mt-3' type='submit'>Update</button>
+            </div>
+        </form>
     </div>
 {% endblock content %}
