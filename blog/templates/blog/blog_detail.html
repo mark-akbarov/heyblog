@@ -14,12 +14,12 @@
             {% if blog.text %}
               <br>
 
-              <p class="card-text" ">{{ blog.text }}</p>
+              <p class="card-text">{{ blog.text }}</p>
             {% endif %}
         </div>
       </div>
         {% if object.author == user %}
-        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <a type="button" class="btn btn-primary btn-sm" href="{% url 'blog_update' object.id %}">Edit</a>
             <a type="button" class="btn btn-danger btn-sm ms-3" href="{% url 'blog_delete' object.id %}">Delete</a>
         </ul>
@@ -40,7 +40,7 @@
             </div>
           </form>
           {% else %}
-          <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
+            <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment!</a><br>
           {% endif %}
         
           {% if comments %}
@@ -54,7 +54,7 @@
                   <img class="rounded-circle" src="{{ comment.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;"><strong class="text-dark">{{ comment.author }} </strong>
                   <small class="text-muted">{{ comment.date_posted }}</small>
                 </span>
-                <p>
+                <p style="color: white;">
                   {{ comment.content|safe }}
                 </p>
               </div>
