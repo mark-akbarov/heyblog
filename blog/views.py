@@ -59,7 +59,7 @@ class BlogDetailView(DetailView):
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog 
-    fields = ['title', 'text', 'image', 'tags',]
+    fields = ['title', 'text', 'image', 'tags', 'status']
     login_url = 'login'
 
     def form_valid(self, form):

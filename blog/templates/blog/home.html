@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 
-
 {% for blog in object_list %}
     <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
         <div class="card mb-3" >
