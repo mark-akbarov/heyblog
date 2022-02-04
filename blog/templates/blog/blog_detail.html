@@ -13,7 +13,6 @@
             {% endif %}
             {% if blog.text %}
               <br>
-
               <p class="card-text">{{ blog.text|safe }}</p>
             {% endif %}
         </div>
@@ -22,7 +21,7 @@
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <a type="button" class="btn btn-primary btn-sm" href="{% url 'blog_update' object.id %}">Edit</a>
             <a type="button" class="btn btn-danger btn-sm ms-3" href="{% url 'blog_delete' object.id %}">Delete</a>
-        </ul>
+        </ul> 
         {% endif %}
         <strong class="text-secondary" style="font-size: 10px;">{{ object.number_of_comments }} Comment{{ object.number_of_comments|pluralize }}</strong>
         <hr>

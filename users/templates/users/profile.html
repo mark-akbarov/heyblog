@@ -6,6 +6,7 @@
         <div class="card-body">
             <p class="card-text">Username: @{{ user.username }}</p>
             <p class="card-text">Email: {{ user.email }}</p>
+            <p class="card-text">{{ user.posts.count_posts_of }} Post{{ user.posts.count_posts_of|pluralize }}:</p>
         </div>
         <form method='POST' enctype="multipart/form-data"  style="padding: 1em;">
             {% csrf_token %}
@@ -20,4 +21,8 @@
             </div>
         </form>
     </div>
+    <br>
+        Post {{ user.profile. }}
+    <br>
+    </br>
 {% endblock content %}

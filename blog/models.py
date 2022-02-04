@@ -16,6 +16,10 @@ class Blog(models.Model):
     @property
     def number_of_comments(self):
         return BlogComment.objects.filter(blogpost_connected=self).count()
+   
+    
+    def count_posts_of(user):
+        return Blog.objects.filter(author=user).count()
 
     def __str__(self):
         return self.title
@@ -32,4 +36,4 @@ class BlogComment(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.author) + ', ' + self.blogpost_connected.title[:40]
+        return str(self.author) + ', ' + self.blogpost_connected.title[:40] 

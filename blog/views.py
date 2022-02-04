@@ -21,6 +21,16 @@ class BlogListView(ListView):
     login_url = 'login'
 
 
+class UserPostListView(ListView):
+    model = Blog
+    template_name = 'users/profile.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+
+    def count_posts_of(user):
+        return Blog.objects.filter(author=user).count()
+
+
 class BlogDetailView(DetailView):
     model = Blog
     template_name = 'blog/blog_detail.html'
