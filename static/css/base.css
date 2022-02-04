@@ -30,6 +30,7 @@ input{
     }
 
 .btn-reddit{
+      font-weight: 600;
       color: white;
       background-color: rgb(255, 72, 0);
     }
@@ -40,6 +41,27 @@ input{
       border-radius: 2px solid white;
     }
 
+.btn-reddit-white{
+  font-weight: 600;
+  background-color: white;
+  color: black;
+}
+
+.inline-reddit{
+  display: inline;
+  font-size: 12px;
+}
+
+.btn-reddit-float{
+  float: right;
+  align-items:flex-end;
+}
+
+.btn-reddit-white:hover{
+  background-color: rgb(228, 228, 228);
+  color: black;
+}
+
 .grid-container{
       display: grid;
       grid-template-columns: 10% 50% 30%;
@@ -49,6 +71,10 @@ input{
       margin: 0 5px;
       align-items: center;
     }
+
+.top-posts{
+  font-size: 12px;
+}
 
 div.card{
       margin-top: 1em;
