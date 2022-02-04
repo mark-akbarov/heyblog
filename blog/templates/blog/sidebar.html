@@ -1,6 +1,6 @@
 {% load blog_tags %}
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="/media/images/sv5eBMgVQfpdwcJaTMvtwXjJ79bLveVGI49TlnVRog0.jpg" alt="Card image cap">
+    <img class="card-img-top" src="/media/images/2w54TaSbpAjXSD65XL65eL.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
       <br>
@@ -26,21 +26,38 @@
     </div>
   </div>
   <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Featured
-    </div>
     <div class="footer-flex">
       <div class="card-body">
-        <p class="card-text" style="height: 1em;">Home</p>
-        <p class="card-text" style="height: 1em;">Sign Up</p>
-        <p class="card-text" style="height: 1em;">Help</p>
-        <p class="card-text" style="height: 1em;">Donate</p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'home' %}">Home</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'register' %}">Sign Up</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'login' %}">Login</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="#">Help</a>
+        </p>
       </div>
       <div class="card-body">
-        <p class="card-text" style="height: 1em;">Home</p>
-        <p class="card-text" style="height: 1em;">Sign Up</p>
-        <p class="card-text" style="height: 1em;">Help</p>
-        <p class="card-text" style="height: 1em;">Donate</p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'home' %}">Home</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'register' %}">Sign Up</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="{% url 'login' %}">Login</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="#">Help</a>
+        </p>
       </div>
+      
+    </div>
+    <div class="card-body">
+      <p class="card-text">HeyBlog Inc. 2022</p> 
     </div>
   </div>

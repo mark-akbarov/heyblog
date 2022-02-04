@@ -16,6 +16,7 @@ main>div{
 
 .footer-flex{
   display: flex;
+  font-size: 13px;
 }
 
 a{
