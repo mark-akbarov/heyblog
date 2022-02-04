@@ -24,8 +24,19 @@
         <br>
       <a href="{% url 'top_posts' %}" class="btn btn-reddit">View All</a>
     </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
+  <div class="card-body">
+    <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle " style="height: 30px; width: 30px; margin-right: 5px; margin-bottom: 5px; display: inline;"> 
+    <p class="card-title" style="display: inline;">Home</p>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{% url 'blog_create' %}" class="btn btn-sm btn-reddit-white">Create Post</a>
   </div>
-  <div class="card" style="width: 18rem;">
+</div>
+
+<div class="card" style="width: 18rem; padding: 1em;">
     <div class="footer-flex">
       <div class="card-body">
         <p class="card-text" style="height: 1em;">
@@ -40,6 +51,12 @@
         <p class="card-text" style="height: 1em;">
           <a href="#">Help</a>
         </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="#">Help</a>
+        </p>
+        <p class="card-text" style="height: 1em;">
+          <a href="#">Help</a>
+        </p>
       </div>
       <div class="card-body">
         <p class="card-text" style="height: 1em;">
@@ -54,10 +71,9 @@
         <p class="card-text" style="height: 1em;">
           <a href="#">Help</a>
         </p>
-      </div>
-      
+      </div>  
     </div>
     <div class="card-body">
-      <p class="card-text">HeyBlog Inc. 2022</p> 
+      <p class="card-title">HeyBlog Inc. 2022</p> 
     </div>
-  </div>
+</div>

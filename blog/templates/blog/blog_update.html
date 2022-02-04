@@ -2,10 +2,19 @@
 {% load crispy_forms_tags %}
 {% block title %}Editing{% endblock title%}
 {% block content %}
+<div></div>
+
+<div>
 <h2>Edit Blog</h2>
 <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-<button class="btn btn-primary" type="submit">Update Blog</button>
+    <br>
+<button class="btn btn-reddit-white" type="submit">Update Blog</button>
 </form>
+</div>
+
+<div>
+    {% include 'blog/sidebar.html' %}
+</div>
 {% endblock content %}

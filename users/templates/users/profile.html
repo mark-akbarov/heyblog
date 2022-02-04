@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %} 
 {% block content %}
 <div></div>
-    <div class="card">
+
+<div class="card">
         <img src="{{ user.profile.image.url }}" class="card-img-top" alt="profile pic">
         <div class="card-body">
             <p class="card-text">Username: @{{ user.username }}</p>
@@ -25,7 +26,10 @@
     <br>
         Post {{ user.profile. }}
     <br>
-    </div>
-    </br>
-<div></div>
+</div>
+</br>
+
+<div>
+    {% include 'blog/sidebar.html' %}
+</div>
 {% endblock content %}

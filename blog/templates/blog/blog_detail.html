@@ -13,6 +13,7 @@
             {% if blog.image %}
                 <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
             {% endif %}
+            <br>
             {% if blog.text %}
               <br>
               <p class="card-text">{{ blog.text|safe }}</p>

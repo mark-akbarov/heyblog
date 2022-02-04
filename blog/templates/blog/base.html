@@ -18,11 +18,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;1,100;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
 
-    <title>HeyBlog</title>
+    <title>{% block title %}{% endblock %}</title>
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">HeyBlog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,14 +42,19 @@
             </li>
             {% else %}
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'blog_create' %}">Post</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'register' %}">Signup</a>
             </li>
-            
             {% endif %}
-            
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-reddit-white btn-reddit-float" type="submit">Search</button>
+            </form>
           </ul>
         </div>
       </div>
@@ -57,6 +62,7 @@
     <main>
       {% block content %}
       {% endblock content %}
+      <br></br>
     </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
