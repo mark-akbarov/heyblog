@@ -1,0 +1,67 @@
+body{
+      background-color: #000000;
+      color: white;
+    }
+
+body.mceContentBody { 
+       background: #fff; 
+        color:#000;
+    }
+
+input{
+      border-radius: 0px;
+    }
+
+.btn {
+      display:block;
+      border-radius: 25px;
+      border: 2px solid white;
+    }
+
+.btn-reddit{
+      color: white;
+      background-color: rgb(255, 72, 0);
+    }
+
+.btn-reddit:hover{
+      color:white;
+      background-color: rgb(218, 63, 2);
+      border-radius: 2px solid white;
+    }
+
+.grid-container{
+      display: grid;
+      grid-template-columns: 10% 50% 30%;
+    }
+
+.grid-container>div{
+      margin: 0 5px;
+      align-items: center;
+    }
+
+div.card{
+      margin-top: 1em;
+      background-color: rgb(36, 36, 36);
+      color: white;
+    }
+
+div.card:hover{
+      border: 1px solid white;
+      transition: 0.5s;
+    }
+
+  
+textarea#id_content.form-control{
+      background: rgb(3, 3, 3);
+      color: white;
+    }
+
+input#id_title.textinput.form-control, textarea#id_text.textarea.form-control,
+input#id_tags.tagwidget.form-control, input#id_username.textinput.textInput.form-control,
+input#id_email.emailinput.form-control, input#id_image.clearablefileinput.form-control-file{
+      background-color: black;
+      border-radius: 0.5px solid white;
+      color:white;
+    }
+
+

@@ -1,79 +1,21 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://cdn.tiny.cloud/1/9lsa30r0ehl31dlyqjkublicasokbldyv72811jozf2bb1lh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script><script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <title>HeyBlog</title>
-
-    <style>
-      body{
-        background-color: #000000;
-        color: white;
-      }
-
-      body.mceContentBody { 
-         background: #fff; 
-          color:#000;
-      }
-
-      .btn {
-        display:block;
-        border-radius: 25px;
-        border: 2px solid white;
-      }
-
-      .btn-reddit{
-        color: white;
-        background-color: rgb(255, 72, 0);
-      }
-
-      .btn-reddit:hover{
-        color:white;
-        background-color: rgb(218, 63, 2);
-        border-radius: 2px solid white;
-      }
-      .grid-container{
-        display: grid;
-        grid-template-columns: 10% 50% 30%;
-      }
-
-      .grid-container>div{
-        margin: 0 5px;
-        align-items: center;
-      }
-
-      div.card{
-        margin-top: 1em;
-        background-color: rgb(36, 36, 36);
-        color: white;
-      }
-
-      div.card:hover{
-        border: 1px solid white;
-        transition: 0.5s;
-      }
-
-    
-      textarea#id_content.form-control{
-        background: rgb(3, 3, 3);
-        color: white;
-      }
-
-      input#id_title.textinput.form-control, textarea#id_text.textarea.form-control,
-      input#id_tags.tagwidget.form-control, input#id_username.textinput.textInput.form-control,
-      input#id_email.emailinput.form-control, input#id_image.clearablefileinput.form-control-file{
-        background-color: black;
-        border-radius: 1px solid white;
-        color:white
-      }
-
-      
-    </style>
 
   </head>
   <body>
@@ -118,10 +60,10 @@
         </div>
         <div class="top-posts-container">
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ user.profile.image.url }}" alt="Card image cap">
+            <img class="card-img-top" src="" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text" style="font-size: 14px;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-reddit">Go somewhere</a>
             </div>
           </div>
@@ -129,7 +71,7 @@
             <div class="card-header">
               Featured
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" style="font-size: 14px; background-color: rgb(36, 36, 36) ;">
               <li class="list-group-item">Cras justo odio</li>
               <li class="list-group-item">Dapibus ac facilisis in</li>
               <li class="list-group-item">Vestibulum at eros</li>
@@ -138,7 +80,7 @@
           </div>
 
         </div>
-    </div>
+      </div>
     </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
