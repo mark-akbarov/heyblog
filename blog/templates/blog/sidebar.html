@@ -6,13 +6,18 @@
       <br>
         {% get_most_commented_posts as most_commented_posts %}
         {% for post in most_commented_posts %}
-        <div class="top-posts" style="width: 100%;">
-              <p class="card-text inline-reddit" style="font-weight: 600; display: inline;">
-              {{ post.author }} · {{ post.title }} 
+        <div class="top-posts" style="width: 100%; display: inline;">
+              <p class="card-text" style="font-weight: 600; ">
+                {{ post.title }} 
               </p>
-              <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" >
+              <p class="inline-reddit">
+                posted by @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
+              </p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
                 See post
               </a> 
+              
+              
             <hr>
         </div>
         {% endfor %}
@@ -23,5 +28,19 @@
   <div class="card" style="width: 18rem;">
     <div class="card-header">
       Featured
+    </div>
+    <div class="footer-flex">
+      <div class="card-body">
+        <p class="card-text" style="height: 1em;">Home</p>
+        <p class="card-text" style="height: 1em;">Sign Up</p>
+        <p class="card-text" style="height: 1em;">Help</p>
+        <p class="card-text" style="height: 1em;">Donate</p>
+      </div>
+      <div class="card-body">
+        <p class="card-text" style="height: 1em;">Home</p>
+        <p class="card-text" style="height: 1em;">Sign Up</p>
+        <p class="card-text" style="height: 1em;">Help</p>
+        <p class="card-text" style="height: 1em;">Donate</p>
+      </div>
     </div>
   </div>

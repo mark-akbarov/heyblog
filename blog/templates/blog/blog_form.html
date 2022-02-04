@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 {% block title %}Create Blog{% endblock title%}
 {% block content %}
-<br>
+
 <div></div>
+
 <div>
 <h2 class="card-title">Write a post</h2>
 
@@ -17,5 +18,7 @@
 </form>
 </div>
 
-<div></div>
+<div>
+    {% include 'blog/sidebar.html' %}
+</div>
 {% endblock content %}

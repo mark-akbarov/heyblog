@@ -13,14 +13,17 @@
                 <br>
                   {% get_all_commented_posts as all_commented_posts %}
                   {% for post in all_commented_posts %}
-                  <div class="top-posts" style="width: 100%;">
-                        <p class="card-text inline-reddit" style="font-weight: 600; display: inline;">
-                        {{ post.author }} · {{ post.title }} 
-                        </p>
-                        <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" >
-                          See post
-                        </a> 
-                      <hr>
+                  <div class="top-posts" style="width: 100%; display: inline;">
+                    <p class="card-text" style="font-weight: 600; ">
+                      {{ post.title }} 
+                    </p>
+                    <p class="inline-reddit">
+                      posted by @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
+                    </p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
+                      See post
+                    </a> 
+                  <hr>
                   </div>
                   {% endfor %}
                   <br>
