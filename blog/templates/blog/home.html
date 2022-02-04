@@ -1,20 +1,30 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<div class="grid-container">
+    <div>
+    </div>
 
-{% for blog in object_list %}
-    <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
-        <div class="card mb-3" >
-            <div class="card-body" >
-                <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">    @{{ blog.author }} · {{ blog.date|date:"F d, Y" }} r/{{ blog.tags.all|join:", " }}</p>
-                <strong><p class="card-title">{{ blog.title }}</p></strong>
-                {% if blog.image %}
-                    <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
-                {% endif %}
-                {% if blog.text %}
-                    <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text|safe }}</p>
-                {% endif %}
+    <div>
+        {% for blog in object_list %}
+        <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
+            <div class="card mb-3" >
+                <div class="card-body" >
+                    <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">    @{{ blog.author }} · {{ blog.date|date:"F d, Y" }} r/{{ blog.tags.all|join:", " }}</p>
+                    <strong><p class="card-title" ">{{ blog.title }}</p></strong>
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="" style="width: 100%;">
+                    {% endif %}
+                    {% if blog.text %}
+                        <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text|safe }}</p>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    </a>
-{% endfor %}
+        </a>
+    {% endfor %}
+    </div>
+
+    <div>
+        {% include 'blog/sidebar.html' %}
+    </div>
+</div>
 {% endblock content %}

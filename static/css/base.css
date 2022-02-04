@@ -10,15 +10,6 @@ a{
   color: white;
 }
 
-ul{
-  text-decoration: none;
-}
-
-body.mceContentBody { 
-       background: #fff; 
-        color:#000;
-    }
-
 input{
       border-radius: 0px;
     }

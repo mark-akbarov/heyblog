@@ -55,42 +55,8 @@
       </div>
     </nav>
     <main>
-      <div class="grid-container">
-        <div></div>
-        <div class="home-container">
-          {% block content %}
-          {% endblock content %}
-        </div>
-        <div class="top-posts-container">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/media/images/sv5eBMgVQfpdwcJaTMvtwXjJ79bLveVGI49TlnVRog0.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
-              <br>
-                {% get_most_commented_posts as most_commented_posts %}
-                {% for post in most_commented_posts %}
-                <div class="top-posts" style="width: 100%;">
-                      <p class="card-text inline-reddit" style="font-weight: 600; display: inline;">
-                      {{ post.author }} · {{ post.title }} 
-                      </p>
-                      <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" >
-                        See post
-                      </a> 
-                    <hr>
-                </div>
-                {% endfor %}
-                <br>
-              <a href="{% url 'top_posts' %}" class="btn btn-reddit">View All</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <div class="card-header">
-              Featured
-            </div>
-          </div>
-
-        </div>
-      </div>
+      {% block content %}
+      {% endblock content %}
     </main>
     <!-- Optional JavaScript; choose one of the two! -->
 
