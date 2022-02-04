@@ -8,10 +8,9 @@ from django.contrib.auth.mixins import (
 LoginRequiredMixin, 
 )
 
-from taggit.models import Tag
+
 from .models import Blog, BlogComment
 from .forms import NewCommentForm
-
 
 
 class BlogListView(ListView):
