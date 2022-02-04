@@ -1,10 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-from blog.models import Blog
-from django import template
-from django.db.models import Count
-
 
 
 class Profile(models.Model):
@@ -15,8 +11,8 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 

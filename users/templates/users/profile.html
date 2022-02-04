@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %} 
 {% block content %}
+<div></div>
     <div class="card">
         <img src="{{ user.profile.image.url }}" class="card-img-top" alt="profile pic">
         <div class="card-body">
@@ -20,9 +21,11 @@
                 <button class='btn btn-reddit mt-3' type='submit'>Update</button>
             </div>
         </form>
-    </div>
+    
     <br>
         Post {{ user.profile. }}
     <br>
+    </div>
     </br>
+<div></div>
 {% endblock content %}

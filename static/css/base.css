@@ -5,6 +5,15 @@ body{
       font-family: IBM Plex Sans;
 }
 
+main{
+  display: grid;
+  grid-template-columns: 10% 50% 30%;
+}
+
+main>div{
+  margin: 0 5px;
+}
+
 a{
   text-decoration: none;
   color: white;
@@ -53,15 +62,6 @@ input{
   color: black;
 }
 
-.grid-container{
-      display: grid;
-      grid-template-columns: 10% 50% 30%;
-    }
-
-.grid-container>div{
-      margin: 0 5px;
-      align-items: center;
-    }
 
 .top-posts{
   font-size: 12px;
@@ -90,7 +90,9 @@ textarea#id_content.form-control{
 
 input#id_title.textinput.form-control, textarea#id_text.textarea.form-control,
 input#id_tags.tagwidget.form-control, input#id_username.textinput.textInput.form-control,
-input#id_email.emailinput.form-control, input#id_image.clearablefileinput.form-control-file{
+input#id_email.emailinput.form-control, input#id_image.clearablefileinput.form-control-file,
+input#id_password1.textInput.form-control,
+input#id_password2.textInput.form-control{
       background-color: black;
       border-radius: 0.5px solid white;
       color:white;

@@ -2,22 +2,34 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
+from django.contrib.auth.models import User
 
 
 def register(request):
-    player, created = Profile.objects.get_or_create(user=request.user)
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+    form = RegisterForm(request.POST or None)
+    ctx = {'form': form}
+    if request.method == "POST":
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created!  You can login.')
+            username = form.cleaned_data['username']
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            password_one = form.cleaned_data['password_one']
+            password_two = form.cleaned_data['password_two']
+            if not User.objects.filter(email=email).exists():
+                 newUser = User.objects.create_user(username=username,
+                                                    first_name=name,
+                                                    email=email,
+                                                    password=password_one)
+                 newUser.save()
+            else:
+                 # Do something, because a user
+                 # with this email already exists
+                 pass
             return redirect('login')
-    else:
-        form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+
+    return render(request, 'users/register.html', ctx)
 
 
 @login_required
