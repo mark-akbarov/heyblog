@@ -3,14 +3,14 @@
 {% block title %}Create Blog{% endblock title%}
 {% block content %}
 <br>
-<h2>Write a post</h2>
+<h2 class="card-title">Write a post</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
     <br>
     {{ form.media }}
-<button style="margin-top: 1em;" class="btn btn-primary" type="submit">Submit Post</button>
+<button style="margin-top: 1em;" class="btn btn-reddit-white" type="submit">Submit Post</button>
 <br>
 </form>
 {% endblock content %}

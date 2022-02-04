@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="">
+    <div class="card" style="width: 100%;">
+      <img class="card-img-top" src="/media/images/sv5eBMgVQfpdwcJaTMvtwXjJ79bLveVGI49TlnVRog0.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
+        <br>
+          {% get_all_commented_posts as all_commented_posts %}
+          {% for post in all_commented_posts %}
+          <div class="top-posts" style="width: 100%;">
+                <p class="card-text inline-reddit" style="font-weight: 600; display: inline;">
+                {{ post.author }} · {{ post.title }} 
+                </p>
+                <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" >
+                  See post
+                </a> 
+              <hr>
+          </div>
+          {% endfor %}
+          <br>
+        <a href="#" class="btn btn-reddit">View All</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

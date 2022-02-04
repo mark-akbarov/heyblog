@@ -21,6 +21,11 @@ class BlogListView(ListView):
     login_url = 'login'
 
 
+class TopBlogListView(ListView):
+    model = Blog
+    template_name = 'blog/top_posts.html'
+
+
 class UserPostListView(ListView):
     model = Blog
     template_name = 'users/profile.html'
