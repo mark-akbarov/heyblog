@@ -9,8 +9,7 @@ django-crispy-forms = "==1.8.1"
 gunicorn = "==19.9.0"
 whitenoise = "==4.1.4"
 django-taggit = "==1.2.0"
-django-ckeditor = "*"
-django-froala-editor = "*"
+django-tinymce = "*"
 
 [dev-packages]
 

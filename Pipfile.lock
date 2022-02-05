@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "09156da2a4e065f760a2e58bdecaa2f10c1cafe68760897411bee49bdc7b43f6"
+            "sha256": "99549009eda70b333ee95d33589a5adc3a30c15a83f08fafd80f8f46e412a3ff"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,14 +31,6 @@
             "index": "pypi",
             "version": "==3.2"
         },
-        "django-ckeditor": {
-            "hashes": [
-                "sha256:9f66420907e41f5b4e698fa5671a00a86995776735f2c4696174aed4640fcbd8",
-                "sha256:df64dc9e62790ef824f609605d31be847bdbce1cc7aa94e49bd5ca60d7aa79bb"
-            ],
-            "index": "pypi",
-            "version": "==6.2.0"
-        },
         "django-crispy-forms": {
             "hashes": [
                 "sha256:0afc0ba730f52a13c02bfbd0e1423af4577a337d73a8a0ef96f2cbbc5f345ffa",
@@ -47,20 +39,6 @@
             "index": "pypi",
             "version": "==1.8.1"
         },
-        "django-froala-editor": {
-            "hashes": [
-                "sha256:6603ef497190f6b8fd8a45748ec93b93598cd678b577fd2d30104f7bdfc9030b"
-            ],
-            "index": "pypi",
-            "version": "==4.0.9"
-        },
-        "django-js-asset": {
-            "hashes": [
-                "sha256:8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd",
-                "sha256:c163ae80d2e0b22d8fb598047cd0dcef31f81830e127cfecae278ad574167260"
-            ],
-            "version": "==1.2.2"
-        },
         "django-taggit": {
             "hashes": [
                 "sha256:4186a6ce1e1e9af5e2db8dd3479c5d31fa11a87d216a2ce5089ba3afde24a2c5",
@@ -68,6 +46,14 @@
             ],
             "index": "pypi",
             "version": "==1.2.0"
+        },
+        "django-tinymce": {
+            "hashes": [
+                "sha256:275653dbf09fbd3347928757d6baf29040b42fe5c5d95396418c36aa4b1517eb",
+                "sha256:4241eb201c670892aa8980a130652f4ae818ba24702f078336296d25e9e1658b"
+            ],
+            "index": "pypi",
+            "version": "==3.4.0"
         },
         "gunicorn": {
             "hashes": [
