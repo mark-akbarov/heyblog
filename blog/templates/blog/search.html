@@ -1,5 +1,5 @@
 {% for blog in posts_filter %}
-<a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
+<a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black;">
     <div class="card mb-1" >
         <div class="card-body" >
             <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">

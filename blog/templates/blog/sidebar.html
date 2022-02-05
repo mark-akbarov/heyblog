@@ -11,7 +11,7 @@
                 {{ post.title }} 
               </p>
               <p class="inline-reddit">
-                posted by @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
+                <em>posted by</em>  @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
               </p>
               <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
                 See post
@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div class="card" style="width: 18rem; padding: 1em;">
+<div class="card" style="width: 18rem; padding: 1em; display: block;">
     <div class="footer-flex">
       <div class="card-body">
         <p class="card-text" style="height: 1em;">

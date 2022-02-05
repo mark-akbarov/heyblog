@@ -26,10 +26,10 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">HeyBlog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">wut</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav" style="font-size: 16px;">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 16px;">
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'blog_create' %}">Post</a>
@@ -51,8 +51,11 @@
               <a class="nav-link" href="{% url 'register' %}">Signup</a>
             </li>
             {% endif %}
-            
           </ul>
+          <form class="d-flex" method="get" style="float: right;">
+            <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn-reddit-white" type="submit">Search</button>
+        </form>
         </div>
       </div>
     </nav>

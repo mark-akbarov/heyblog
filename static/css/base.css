@@ -92,6 +92,16 @@ div.card:hover{
       transition: 0.5s;
 }
 
+div.card-header{
+  background-color: #1a1a1a;
+  display: flex;
+  font-size: 12px;
+}
+
+div.card-header>div{
+  margin-left: 1em;
+}
+
 div.search-card{
   top: 5em;
 }

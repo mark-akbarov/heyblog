@@ -17,7 +17,7 @@ def home(request):
 
     q = request.GET.get('q') if request.GET.get('q') != None else ''
 
-    posts_filter = Blog.published.filter(Q(title__icontains=q) | Q(text__icontains=q) )
+    posts_filter = Blog.published.filter(Q(title__icontains=q))
 
     context = {'blogs': blogs, 'posts_filter': posts_filter}
     return render(request, 'blog/home.html', context)

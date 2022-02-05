@@ -1,10 +1,11 @@
+from re import template
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
-from django.contrib.auth.models import User
 
 
 def register(request):
@@ -30,6 +31,11 @@ def register(request):
             return redirect('login')
 
     return render(request, 'users/register.html', ctx)
+
+
+class ProfileDetailView(DetailView):
+    model = Profile
+    template_name = 'users/profile.html'
 
 
 @login_required
