@@ -8,17 +8,27 @@ from django.contrib.auth.mixins import (
 LoginRequiredMixin, 
 )
 
-
 from .models import Blog, BlogComment
 from .forms import NewCommentForm
 
 
-class BlogListView(ListView):
-    model = Blog
-    template_name = 'blog/home.html'
-    object_list = 'blogs'
-    ordering = ['-date']
-    login_url = 'login'
+def home(request):
+
+    blogs = Blog.published.all()
+
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+
+    posts_filter = Blog.published.filter(title__icontains=q)
+
+    context = {'blogs': blogs, 'posts_filter': posts_filter}
+    return render(request, 'blog/home.html', context)
+
+# class BlogListView(ListView):
+#     model = Blog
+#     template_name = 'blog/home.html'
+#     object_list = 'blogs'
+    
+#     login_url = 'login'
 
 
 class TopBlogListView(ListView):
