@@ -2,8 +2,9 @@ from re import template
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import MultipleObjectsReturned
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 
@@ -42,8 +43,8 @@ class ProfileDetailView(DetailView):
 def profile(request):
     try:
         profile = request.user.profile
-    except Profile.DoesNotExist:
-        profile = Profile(user=request.user)
+    except MultipleObjectsReturned:
+        profile = Profile.objects.filter(user=request.user).first()
 
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
