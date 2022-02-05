@@ -7,7 +7,7 @@ body{
 
 main{
   display: grid;
-  grid-template-columns: 20% 50% 30%;
+  grid-template-columns: 10% 50% 30%;
 }
 
 main>div{
@@ -67,6 +67,11 @@ input{
   color: black;
 }
 
+.nothing-found{
+  display: flex;
+  justify-content: space-around;
+  margin: 10rem auto;
+}
 
 .top-posts{
   font-size: 12px;

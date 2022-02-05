@@ -1,5 +1,4 @@
-from django.urls import reverse_lazy
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.views.generic import (
     ListView, DetailView, 
     CreateView, UpdateView, 
@@ -7,7 +6,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import (
 LoginRequiredMixin, 
 )
-
+from django.db.models import Q
 from .models import Blog, BlogComment
 from .forms import NewCommentForm
 
@@ -18,7 +17,7 @@ def home(request):
 
     q = request.GET.get('q') if request.GET.get('q') != None else ''
 
-    posts_filter = Blog.published.filter(title__icontains=q)
+    posts_filter = Blog.published.filter(Q(title__icontains=q) | Q(text__icontains=q) )
 
     context = {'blogs': blogs, 'posts_filter': posts_filter}
     return render(request, 'blog/home.html', context)

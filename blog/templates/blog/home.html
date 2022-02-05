@@ -6,10 +6,23 @@
 </title>
 {% block content %}
     <div>
-        {% include 'blog/search.html' %}
     </div>
 
     <div>
+        <div class="card sticky-top search-card">
+            <div class="card-body ">
+                <form class="d-flex" method="get" style="padding: 0;">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-reddit-white" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        {% if request.GET %}
+
+            {% include 'blog/search.html' %}
+
+        {% else %}
+
         {% for blog in blogs %}
             <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
                 <div class="card mb-1" >
@@ -28,6 +41,7 @@
                 </div>
             </a>
         {% endfor %}
+        {% endif %}
     </div>
 
     <div>

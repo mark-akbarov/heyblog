@@ -29,7 +29,9 @@
 <div class="card" style="width: 18rem;">
   <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
   <div class="card-body">
+    {% if user.is_authenticated %}
     <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle " style="height: 30px; width: 30px; margin-right: 5px; margin-bottom: 5px; display: inline;"> 
+    {% endif %}
     <p class="card-title" style="display: inline;">Home</p>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="{% url 'blog_create' %}" class="btn btn-sm btn-reddit-white">Create Post</a>

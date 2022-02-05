@@ -17,7 +17,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=150, )
     text = HTMLField(default='', blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE,)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     tags = TaggableManager()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
