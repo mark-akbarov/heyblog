@@ -10,6 +10,7 @@ gunicorn = "==19.9.0"
 whitenoise = "==4.1.4"
 django-taggit = "==1.2.0"
 django-tinymce = "*"
+pillow = "*"
 
 [dev-packages]
 
