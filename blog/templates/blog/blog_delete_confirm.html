@@ -5,11 +5,11 @@
 <div></div>
 
 <div>
-<h2>Are you sure you want to delete blog?</h2>
-<form method="post">
+<h2 class="card-title mt-5">Are you sure you want to delete blog?</h2>
+<form method="post" style="width: 13rem;">
     {% csrf_token %}
-<button class="btn btn-outline-danger" type="submit">Delete</button>
-<a class="btn btn-outline-secondary" href="{% url 'blog_detail' object.id %}">Cancel</a>
+    <button class="btn btn-danger me-3" type="submit" style="display: inline;">Delete</a> <br>
+    <button class="btn btn-reddit-white" style="display: inline;" href="{% url 'blog_detail' object.id %}">Cancel</a>
 </form>
 </div>
 
