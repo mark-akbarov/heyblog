@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'taggit',
     
+    
     #Local
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',

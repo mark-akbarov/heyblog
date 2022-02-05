@@ -7,7 +7,7 @@ body{
 
 main{
   display: grid;
-  grid-template-columns: 10% 50% 30%;
+  grid-template-columns: 20% 50% 30%;
 }
 
 main>div{
@@ -76,22 +76,25 @@ input{
   font-weight: 700;
 }
 
-div.card{
+div.card, .list-group-item{
       margin-top: 1em;
       background-color: rgb(36, 36, 36);
       color: white;
-    }
+}
 
 div.card:hover{
       border: 1px solid white;
       transition: 0.5s;
-    }
+}
 
+div.search-card{
+  top: 5em;
+}
   
 textarea#id_content.form-control{
       background: rgb(3, 3, 3);
       color: white;
-    }
+}
 
 input#id_title.textinput.form-control, textarea#id_text.textarea.form-control,
 input#id_tags.tagwidget.form-control, input#id_username.textinput.textInput.form-control,
