@@ -122,3 +122,17 @@ input#id_password2.textInput.form-control{
     }
 
 
+    @media only screen and (max-width: 600px) {
+      main{
+        display: grid;
+        grid-template-columns: 0% 100% 0%;
+      }
+      main>div{
+        margin: 0px;
+      }
+
+      div.card{
+        margin-top: 0;
+        border-radius: 0;
+      }
+}
