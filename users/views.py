@@ -18,7 +18,7 @@ from .models import Profile
 
 def register(request):
     form = RegisterForm(request.POST or None)
-    ctx = {'form': form}
+    context = {'form': form}
     if request.method == "POST":
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -38,7 +38,7 @@ def register(request):
                  pass
             return redirect('login')
 
-    return render(request, 'users/register.html', ctx)
+    return render(request, 'users/register.html', context)
 
 
 

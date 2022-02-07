@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #3rd party
+    'verify_email.apps.VerifyEmailConfig',
     'tinymce',
     'crispy_forms',
     'taggit',
@@ -118,6 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -150,8 +152,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'markakbarov@gmail.com'
 EMAIL_HOST_PASSWORD = 'm4rcakbAr0v'
 EMAIL_PORT = 587
+
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'

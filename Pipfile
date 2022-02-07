@@ -12,6 +12,7 @@ django-taggit = "==1.2.0"
 django-tinymce = "*"
 pillow = "*"
 django-utils-six = "*"
+django-verify-email = "*"
 
 [dev-packages]
 
