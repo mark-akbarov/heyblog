@@ -22,9 +22,9 @@
 
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar main-navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">HeyBlog</a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="/media/reddit.svg" alt="logo" style="height: 25px; width: 25px;"> reddit</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,12 +52,18 @@
             </li>
             {% endif %}
           </ul>
-          <form class="d-flex" method="get" style="float: right;">
+          <form class="d-flex search-form" method="get" style="float: right;">
             <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
             <button class="btn btn-reddit-white" type="submit">Search</button>
-        </form>
+          </form>
         </div>
       </div>
+    </nav>
+    <nav class="navbar mobile-navbar">
+      <form class="d-flex search-form" method="get">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-reddit-white" type="submit">Search</button>
+      </form>
     </nav>
     <main>
       {% block content %}

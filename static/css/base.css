@@ -14,6 +14,10 @@ main>div{
   margin: 0 5px;
 }
 
+.mobile-navbar{
+  display: none;
+}
+
 .footer-flex{
   display: flex;
   font-size: 13px;
@@ -122,7 +126,12 @@ input#id_password2.textInput.form-control{
     }
 
 
-    @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
+      
+      body{
+        font-size: 60%;
+      }
+
       main{
         display: grid;
         grid-template-columns: 0% 100% 0%;
@@ -134,5 +143,25 @@ input#id_password2.textInput.form-control{
       div.card{
         margin-top: 0;
         border-radius: 0;
+      }
+
+      .main-navbar{
+        height: 40px;
+      }
+
+      .search-form>input{
+        height: 40px;
+      }
+
+      .login, .signup{
+        margin: 0 auto;
+      }
+
+      .sidebar{
+        display: none;
+      }
+
+      .blog-form{
+        padding: 1em;
       }
 }

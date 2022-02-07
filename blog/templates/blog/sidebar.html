@@ -1,81 +1,83 @@
 {% load blog_tags %}
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="/media/images/2w54TaSbpAjXSD65XL65eL.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
-      <br>
-        {% get_most_commented_posts as most_commented_posts %}
-        {% for post in most_commented_posts %}
-        <div class="top-posts" style="width: 100%; display: inline;">
-              <p class="card-text" style="font-weight: 600; ">
-                {{ post.title }} 
-              </p>
-              <p class="inline-reddit">
-                <em>posted by</em>  @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
-              </p>
-              <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
-                See post
-              </a> 
-              
-              
-            <hr>
-        </div>
-        {% endfor %}
-        <br>
-      <a href="{% url 'top_posts' %}" class="btn btn-reddit">View All</a>
-    </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
-  <div class="card-body">
-    {% if user.is_authenticated %}
-    <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle " style="height: 30px; width: 30px; margin-right: 5px; margin-bottom: 5px; display: inline;"> 
-    {% endif %}
-    <p class="card-title" style="display: inline;">Home</p>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="{% url 'blog_create' %}" class="btn btn-sm btn-reddit-white">Create Post</a>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem; padding: 1em; display: block;">
-    <div class="footer-flex">
+<div class="sidebar">
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="/media/images/2w54TaSbpAjXSD65XL65eL.jpg" alt="Card image cap">
       <div class="card-body">
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'home' %}">Home</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'register' %}">Sign Up</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'login' %}">Login</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="#">Help</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="#">Help</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="#">Help</a>
-        </p>
+        <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
+        <br>
+          {% get_most_commented_posts as most_commented_posts %}
+          {% for post in most_commented_posts %}
+          <div class="top-posts" style="width: 100%; display: inline;">
+                <p class="card-text" style="font-weight: 600; ">
+                  {{ post.title }} 
+                </p>
+                <p class="inline-reddit">
+                  <em>posted by</em>  @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
+                </p>
+                <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
+                  See post
+                </a> 
+                
+                
+              <hr>
+          </div>
+          {% endfor %}
+          <br>
+        <a href="{% url 'top_posts' %}" class="btn btn-reddit">View All</a>
+      </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle " style="height: 30px; width: 30px; margin-right: 5px; margin-bottom: 5px; display: inline;"> 
+      {% endif %}
+      <p class="card-title" style="display: inline;">Home</p>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="{% url 'blog_create' %}" class="btn btn-sm btn-reddit-white">Create Post</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; padding: 1em; display: block;">
+      <div class="footer-flex">
+        <div class="card-body">
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'home' %}">Home</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'register' %}">Sign Up</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'login' %}">Login</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="#">Help</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="#">Help</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="#">Help</a>
+          </p>
+        </div>
+        <div class="card-body">
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'home' %}">Home</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'register' %}">Sign Up</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="{% url 'login' %}">Login</a>
+          </p>
+          <p class="card-text" style="height: 1em;">
+            <a href="#">Help</a>
+          </p>
+        </div>  
       </div>
       <div class="card-body">
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'home' %}">Home</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'register' %}">Sign Up</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="{% url 'login' %}">Login</a>
-        </p>
-        <p class="card-text" style="height: 1em;">
-          <a href="#">Help</a>
-        </p>
-      </div>  
-    </div>
-    <div class="card-body">
-      <p class="card-title">HeyBlog Inc. 2022</p> 
-    </div>
+        <p class="card-title">HeyBlog Inc. 2022</p> 
+      </div>
+  </div>
 </div>
