@@ -5,6 +5,11 @@ body{
       font-family: IBM Plex Sans;
 }
 
+.navbar-brand{
+  font-size: 20px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
 main{
   display: grid;
   grid-template-columns: 10% 50% 30%;
@@ -143,14 +148,6 @@ input#id_password2.textInput.form-control{
       div.card{
         margin-top: 0;
         border-radius: 0;
-      }
-
-      .main-navbar{
-        height: 40px;
-      }
-
-      .search-form>input{
-        height: 40px;
       }
 
       .login, .signup{
