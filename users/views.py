@@ -26,16 +26,7 @@ def register(request):
             email = form.cleaned_data['email']
             password_one = form.cleaned_data['password_one']
             password_two = form.cleaned_data['password_two']
-            if not User.objects.filter(email=email).exists():
-                 newUser = User.objects.create_user(username=username,
-                                                    first_name=name,
-                                                    email=email,
-                                                    password=password_one)
-                 newUser.save()
-            else:
-                 # Do something, because a user
-                 # with this email already exists
-                 pass
+            
             return redirect('login')
 
     return render(request, 'users/register.html', context)

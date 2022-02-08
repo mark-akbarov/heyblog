@@ -43,11 +43,25 @@ class Blog(models.Model):
 
 
 class BlogComment(models.Model):
-    blogpost_connected = models.ForeignKey(
+    blogpost_connected = models.ForeignKey( 
         Blog, related_name='comments', on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
+
+
+    def get_absolute_url(self):
+        return reverse('blog_detail', kwargs={'pk' : self.pk})
+
+    def children(self):
+        return str(self.user.username)
+
+    @property
+    def is_parent(self):
+        if self.parent is not None:
+            return False
+        return True
 
     def __str__(self):
         return str(self.author) + ', ' + self.blogpost_connected.title[:40] 

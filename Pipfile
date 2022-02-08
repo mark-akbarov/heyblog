@@ -13,6 +13,7 @@ django-tinymce = "*"
 pillow = "*"
 django-utils-six = "*"
 django-verify-email = "*"
+django-user-accounts = "*"
 
 [dev-packages]
 

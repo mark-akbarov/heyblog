@@ -7,7 +7,7 @@ class NewCommentForm(forms.ModelForm):
         'class':'form-control',
         'placeholder':'Comment here !',
         'rows':4,
-        'cols':50,
+        'cols':50, 
 
     }))
     class Meta:
