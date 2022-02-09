@@ -1,24 +1,12 @@
-{% extends 'blog/base.html' %}
-<title>
-    {% block title %}
-         HeyBlog | Front Page of Interne
-    {% endblock %}
-</title>
+{%extends 'blog/base.html'%}
 {% block content %}
-<div>
-</div>
-
-<div>
-      {% if request.GET %}
-          {% include 'blog/search.html' %}
-      {% else %}
-      
-      {% for blog in blogs %}
+<div></div>
+{% for blog in object_list %}
           <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
               <div class="card mb-1" >
                   <div class="card-body" >
                       <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">
-                        @{{ blog.author }} · {{ blog.date|date:"F d, Y" }} r/{{ blog.blog.subreddit.name }}
+                        @{{ blog.author }} · {{ blog.date|date:"F d, Y" }} r/{{ blog.subreddit.name }}
                       </p>
                       <strong><p class="card-title">{{ blog.title }}</p></strong>
                       {% if blog.image %}
@@ -53,11 +41,6 @@
               </div>
           </a>
       {% endfor %}
-      {% endif %}
-</div>
 
-  <div>
-      {% include 'blog/sidebar.html' %}
-  </div>
-
-{% endblock content %}
+      <div>{% include 'blog/sidebar.html' %}</div>
+    {% endblock %}

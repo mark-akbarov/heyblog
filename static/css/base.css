@@ -140,9 +140,38 @@ input#id_password2.textInput.form-control{
       main{
         display: grid;
         grid-template-columns: 0% 100% 0%;
+        margin-bottom: 3em;
       }
       main>div{
         margin: 0px;
+      }
+
+      .main-navbar{
+        display: none;
+      }
+
+      
+      .search-form{
+        width: 70%;
+      }
+      .navbar-dark{
+        background-color: #1a1a1a;
+      }
+      
+      footer{
+        padding: 1em;
+        background-color: rgb(17, 17, 17);
+        color: white;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .blog-form{
+        padding: 1em;
       }
 
       div.card{
@@ -158,7 +187,4 @@ input#id_password2.textInput.form-control{
         display: none;
       }
 
-      .blog-form{
-        padding: 1em;
-      }
 }
