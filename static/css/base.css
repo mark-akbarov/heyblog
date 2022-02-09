@@ -5,6 +5,10 @@ body{
       font-family: IBM Plex Sans;
 }
 
+footer{
+  display: none;
+}
+
 .navbar-brand{
   font-size: 20px;
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
@@ -150,6 +154,9 @@ input#id_password2.textInput.form-control{
         display: none;
       }
 
+      .mobile-navbar{
+        display:block;
+      }
       
       .search-form{
         width: 70%;
@@ -159,7 +166,7 @@ input#id_password2.textInput.form-control{
       }
       
       footer{
-        padding: 1em;
+        padding: 1.5em;
         background-color: rgb(17, 17, 17);
         color: white;
         position: fixed;
@@ -169,9 +176,19 @@ input#id_password2.textInput.form-control{
         display: flex;
         justify-content: space-around;
       }
-
+      .pfp{
+        height: 50px;
+        width: 50px; 
+        border: 1px solid white;
+        top: 22%;
+        left: 55%;
+      }
       .blog-form{
         padding: 1em;
+      }
+
+      .card-home{
+        display: none;
       }
 
       div.card{

@@ -7,8 +7,8 @@
 
 <div class="card">
         <img class="card-img-top" src="/media/images/tild6463-6631-4138-a233-356437663966__1zpiy5sq.png" alt="cover">
-        <img src="{{ user.profile.image.url }}" class="rounded-circle ms-3" style="height: 150px; width: 150px; border: 5px solid white;margin-right: 5px;position: absolute; 
-        top: 20%; left: 65%;" alt="profile pic">
+        <img src="{{ user.profile.image.url }}" class="pfp rounded-circle ms-3" style="height: 150px; width: 150px; border: 5px solid white;margin-right: 5px;position: absolute; 
+        top: 25%; left: 60%;" alt="profile pic">
         <h2 class="card-title ms-3 mt-lg-3" style="display: inline; align-items: center;">@{{ user.username }}</h2>
 
         <h4 class="card-text ms-3 mt-3">email: {{ user.email }}</h4>
@@ -25,10 +25,18 @@
                 <button class='btn btn-reddit mt-3' type='submit'>Update</button>
             </div>
         </form>
+        <br>
+        <div style="padding: 1em;">
+            <a href="{% url 'logout' %}">
+                <button style="display: inline;" class="btn btn-reddit-white" >Logout</button>
+            </a>    
+        </div>
+        <br>
+
 </div>
 
 <div>
-    <div class="card" style="width: 18rem;">
+    <div class="card card-home" style="width: 18rem;">
         <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
         <div class="card-body">
           {% if user.is_authenticated %}
