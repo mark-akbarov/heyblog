@@ -19,6 +19,7 @@
               <p class="card-text">{{ blog.text|safe }}</p>
             {% endif %}
             {% if object.author == user %}
+            <br>
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <a type="button" class="btn btn-dark btn-sm" href="{% url 'blog_update' object.id %}">Edit</a>
                 <a type="button" class="btn btn-danger btn-sm ms-3" href="{% url 'blog_delete' object.id %}">Delete</a>
@@ -44,7 +45,6 @@
         </div>
       </div>
         
-      <hr>
       <div class="card">
         
         {% if user.is_authenticated %}
@@ -57,20 +57,20 @@
           </div>
         </form>
         {% else %}
+        <div>
           <a class="btn btn-reddit-white" href="{% url 'login' %}?next={{request.path}}">
             Log in to add a comment!
           </a>
-          <br>
+        </div>
+        <br>
         {% endif %}
       
         {% if comments %}
-
-        <hr>
         <ul>  
         <div style="font-size: 16px;">
           {% for comment in comments %}
                 
-            <div style="border-left: 2px solid grey; margin-right: 1em;">
+            <div>
               <span>
                 <img class="rounded-circle" src="{{ comment.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">
                 <strong class="">{{ comment.author }} </strong>
@@ -78,19 +78,9 @@
               </span>
               <p style="color: white;">
                 {{ comment.content|safe }}
+                <hr>
               </p>
             </div>
-            <hr>
-              <form method="POST" style="padding: 0.5em;">
-              {% csrf_token %}
-              <div class="form-group">
-                {{ comment_form }}
-                <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                <input type="submit" class="btn btn-sm btn-reddit-white mt-2" value="Reply">
-  
-              </div>
-              </form>
-              <hr>
           
           {% endfor %}   
           </div>

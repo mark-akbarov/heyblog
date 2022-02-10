@@ -128,7 +128,7 @@ textarea#id_content.form-control{
 @media only screen and (max-width: 600px) {
       
       body{
-        font-size: 60%;
+        font-size: 80%;
       }
 
       main{
@@ -156,8 +156,8 @@ textarea#id_content.form-control{
       }
       
       footer{
-        padding: 1.5em;
-        background-color: rgb(17, 17, 17);
+        padding: 0.75em;
+        background-color: rgb(19, 19, 19);
         color: white;
         position: fixed;
         left: 0;
@@ -166,13 +166,7 @@ textarea#id_content.form-control{
         display: flex;
         justify-content: space-around;
       }
-      .pfp{
-        height: 50px;
-        width: 50px; 
-        border: 1px solid white;
-        top: 22%;
-        left: 55%;
-      }
+     
       .blog-form{
         padding: 1em;
       }
@@ -180,10 +174,20 @@ textarea#id_content.form-control{
       .card-home{
         display: none;
       }
-
+      
       div.card{
-        margin-top: 0;
+        padding: 0;
+        border-bottom: 2px solid gray;
         border-radius: 0;
+        background-color: black;
+      }
+
+      div.card-header{
+        background-color: #000000;
+      }
+
+      div.card>p{
+        padding: 0.1px;
       }
 
       .login, .signup{
