@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import (
 LoginRequiredMixin, 
 )
 from django.db.models import Q
-from .models import Blog, BlogComment, SubRedditPost
+from .models import Blog, BlogComment
 from .forms import NewCommentForm
 
 
@@ -20,6 +20,7 @@ def home(request):
     posts_filter = Blog.published.filter(Q(title__icontains=q))
 
     context = {'blogs': blogs, 'posts_filter': posts_filter}
+    
     return render(request, 'blog/home.html', context)
 
 # class BlogListView(ListView):
@@ -62,18 +63,13 @@ class BlogDetailView(DetailView):
         return data
 
     def post(self, request, *args, **kwargs):
-        new_comment = BlogComment(content=request.POST.get('content'),author=self.request.user,blogpost_connected=self.get_object())
+        new_comment = BlogComment(content=request.POST.get('content'),author=self.request.user,blogpost_connected=self.get_object(), )
 
         
 
         new_comment.save()
         return self.get(self, request, *args, **kwargs)
         
-
-class SubredditListView(ListView):
-    model = SubRedditPost
-    template_name = 'blog/subreddit_posts.html'
-    object_list = 'subreddits_set'
 
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
