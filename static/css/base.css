@@ -124,16 +124,6 @@ textarea#id_content.form-control{
       color: white;
 }
 
-input#id_title.textinput.form-control, textarea#id_text.textarea.form-control,
-input#id_tags.tagwidget.form-control, input#id_username.textinput.textInput.form-control,
-input#id_email.emailinput.form-control, input#id_image.clearablefileinput.form-control-file,
-input#id_password1.textInput.form-control,
-input#id_password2.textInput.form-control{
-      background-color: black;
-      border-radius: 0.5px solid white;
-      color:white;
-    }
-
 
 @media only screen and (max-width: 600px) {
       
