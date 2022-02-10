@@ -1,1 +1,1 @@
-# Webblog using Django 3.2 
+# Reddit Clone Heyblog 0.1.0
