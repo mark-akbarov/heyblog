@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tinymce',
     'crispy_forms',
     'taggit',
+    'rest_framework',
     
     
     #Local
