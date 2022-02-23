@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'taggit',
     'rest_framework',
-    
+    'corsheaders',
     
     #Local
     'blog.apps.BlogConfig',
@@ -60,6 +60,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -152,6 +155,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 EMAIL_USE_TLS = True
