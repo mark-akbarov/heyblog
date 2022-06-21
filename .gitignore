@@ -1,2 +1,4 @@
 env
 staticfiles
+Pipfile
+Pipfile.lock

@@ -10,7 +10,7 @@ import taggit.managers
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('taggit', '0004_auto_20220202_2006'),
+        # ('taggit', '0004_auto_20220202_2006'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('blog', '0003_delete_comment'),
     ]
