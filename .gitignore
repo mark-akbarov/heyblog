@@ -2,3 +2,7 @@
 .static
 .media
 *.pyc
+venv
+static
+media
+*.pyc
