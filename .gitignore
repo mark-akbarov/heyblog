@@ -1,4 +1,4 @@
-env
+venv
 staticfiles
 Pipfile
 Pipfile.lock
