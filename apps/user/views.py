@@ -20,41 +20,12 @@ def signup(request):
             
             return redirect('login')
 
-    return render(request, 'users/signup.html', context)
-
-
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = SignupForm(request.POST)
-#         if form.is_valid():
-#             user = form.save(commit=False)
-#             user.is_active = False
-#             user.save()
-#     else:
-#         form = SignupForm()
-#     return render(request, 'users/signup.html', {'form': form})
-
-
-# def activate(request, uidb64, token):
-#     try:
-#         uid = force_text(urlsafe_base64_decode(uidb64))
-#         user = User.objects.get(pk=uid)
-#     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-#         user = None
-#     if user is not None and account_activation_token.check_token(user, token):
-#         user.is_active = True
-#         user.save()
-#         login(request, user)
-#         # return redirect('home')
-#         return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
-#     else:
-#         return HttpResponse('Activation link is invalid!')
+    return render(request, 'user/signup.html', context)
 
 
 class ProfileDetailView(DetailView):
     model = Profile
-    template_name = 'users/profile.html'
+    template_name = 'user/profile.html'
 
 
 @login_required
@@ -83,6 +54,6 @@ def profile(request):
         'p_form': p_form,
     }
 
-    return render(request,'users/profile.html', context)
+    return render(request,'user/profile.html', context)
 
     

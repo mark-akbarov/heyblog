@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0002_delete_user'),
+        ('user', '0002_delete_user'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='profile',
             name='following',
-            field=models.ManyToManyField(blank=True, null=True, related_name='followers', to='users.Profile'),
+            field=models.ManyToManyField(blank=True, null=True, related_name='followers', to='user.Profile'),
         ),
     ]

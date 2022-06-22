@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     
     # local
     'blog',
-    'users',
+    'user',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

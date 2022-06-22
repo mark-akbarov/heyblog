@@ -25,7 +25,7 @@ class TopBlogListView(ListView):
 
 class UserPostListView(ListView):
     model = Blog
-    template_name = 'users/profile.html'
+    template_name = 'user/profile.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
 
@@ -37,7 +37,7 @@ class BlogDetailView(DetailView):
     model = Blog
     template_name = 'blog/blog_detail.html'
     login_url = 'login'
-    
+
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog 
     fields = ['title', 'text', 'image', 'tags', 'status']
@@ -46,7 +46,6 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
 
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
