@@ -11,3 +11,4 @@ django-user-accounts
 djangorestframework == 3.11.0
 requests
 django-cors-headers
+psycopg2
