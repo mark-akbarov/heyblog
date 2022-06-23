@@ -1,7 +1,3 @@
-.venv
-.static
-.media
-*.pyc
 venv
 static
 media
