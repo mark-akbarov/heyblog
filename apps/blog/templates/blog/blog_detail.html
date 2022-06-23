@@ -58,7 +58,7 @@
         </form>
         {% else %}
         <div>
-          <a class="btn btn-reddit-white" href="{% url 'login' %}?next={{request.path}}">
+          <a class="btn btn-reddit-white" href="{% url 'user:login' %}?next={{request.path}}">
             Log in to add a comment!
           </a>
         </div>

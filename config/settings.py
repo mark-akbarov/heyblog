@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
-    'verify_email.apps.VerifyEmailConfig',
     'tinymce',
     'crispy_forms',
     'taggit',

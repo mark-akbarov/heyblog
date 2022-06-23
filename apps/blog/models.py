@@ -5,7 +5,7 @@ from tinymce.models import HTMLField
 
 
 class Blog(models.Model):
-    title = models.CharField(max_length=150, )
+    title = models.CharField(max_length=150)
     text = HTMLField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
