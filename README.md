@@ -1,4 +1,4 @@
-# Reddit Clone Heyblog 0.5.0
+# Reddit Clone Heyblog 0.85.0
 
 Project Setup:
   1. Clone repo
