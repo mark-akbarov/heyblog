@@ -1,4 +1,4 @@
+Procfile
 venv
 media
 *.pyc
-Procfile
