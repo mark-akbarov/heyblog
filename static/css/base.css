@@ -1,0 +1,201 @@
+body{
+      background-color: #000000;
+      color: white;
+      font-size: 16px;
+      font-family: IBM Plex Sans;
+}
+
+footer{
+  display: none;
+}
+
+.navbar-brand{
+  font-size: 20px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 10% 50% 30%;
+}
+
+main>div{
+  margin: 0 5px;
+}
+
+.mobile-navbar{
+  display: none;
+}
+
+.footer-flex{
+  display: flex;
+  font-size: 13px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+input{
+      border-radius: 0px;
+    }
+
+.btn {
+      display:block;
+      border-radius: 25px;
+      border: 2px solid white;
+    }
+
+.btn-reddit{
+      font-weight: 600;
+      color: white;
+      background-color: rgb(255, 72, 0);
+    }
+
+.btn-reddit:hover{
+      color:white;
+      background-color: rgb(218, 63, 2);
+      border-radius: 2px solid white;
+    }
+
+.btn-reddit-white{
+  font-weight: 600;
+  background-color: white;
+  color: black;
+}
+
+.inline-reddit{
+  display: inline;
+  font-size: 12px;
+}
+
+.btn-reddit-float{
+  float: right;
+  align-items:flex-end;
+}
+
+.btn-reddit-white:hover{
+  background-color: rgb(228, 228, 228);
+  color: black;
+}
+
+.nothing-found{
+  display: flex;
+  justify-content: space-around;
+  margin: 10rem auto;
+}
+
+.top-posts{
+  font-size: 12px;
+}
+
+.card-title{
+  font-weight: 700;
+}
+
+div.card, .list-group-item{
+      margin-top: 1em;
+      background-color: rgb(36, 36, 36);
+      color: white;
+}
+
+div.card:hover{
+      border: 1px solid white;
+      transition: 0.5s;
+}
+
+div.card-header{
+  background-color: #1a1a1a;
+  display: flex;
+  font-size: 12px;
+}
+
+div.card-header>div{
+  margin-left: 1em;
+}
+
+div.search-card{
+  top: 5em;
+}
+  
+textarea#id_content.form-control{
+      background: rgb(3, 3, 3);
+      color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+      
+      body{
+        font-size: 80%;
+      }
+
+      main{
+        display: grid;
+        grid-template-columns: 0% 100% 0%;
+        margin-bottom: 3em;
+      }
+      main>div{
+        margin: 0px;
+      }
+
+      .main-navbar{
+        display: none;
+      }
+
+      .mobile-navbar{
+        display:block;
+      }
+      
+      .search-form{
+        width: 70%;
+      }
+      .navbar-dark{
+        background-color: #1a1a1a;
+      }
+      
+      footer{
+        padding: 0.75em;
+        background-color: rgb(19, 19, 19);
+        color: white;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+     
+      .blog-form{
+        padding: 1em;
+      }
+
+      .card-home{
+        display: none;
+      }
+      
+      div.card{
+        padding: 0;
+        border-bottom: 2px solid gray;
+        border-radius: 0;
+        background-color: black;
+      }
+
+      div.card-header{
+        background-color: #000000;
+      }
+
+      div.card>p{
+        padding: 0.1px;
+      }
+
+      .login, .signup{
+        margin: 0 auto;
+      }
+
+      .sidebar{
+        display: none;
+      }
+
+}
