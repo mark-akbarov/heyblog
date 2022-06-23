@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # local
     'blog',
     'user',
+    'comment',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -77,9 +78,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'blog.templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
