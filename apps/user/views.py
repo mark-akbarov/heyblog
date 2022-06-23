@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, UserUpdateForm, ProfileUpdateForm
+from .forms import LoginForm, SignupForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 
 
@@ -13,12 +13,20 @@ def signup(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
-            password_one = form.cleaned_data['password1']
-            password_two = form.cleaned_data['password2']
-            
+            password = form.cleaned_data['password']
             return redirect('user:login')
-
     return render(request, 'user/signup.html', context)
+
+
+def login(request):
+    form = LoginForm(request.POST or None)
+    context = {'form': form}
+    if request.method == "POST":
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            return redirect('home')
+    return render(request, 'user/login.html', context)
 
 
 class ProfileDetailView(DetailView):

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView, DetailView, 
     CreateView, UpdateView, 
@@ -68,8 +69,9 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
 class BlogDeleteView(LoginRequiredMixin,  DeleteView):
     model = Blog
     template_name = 'blog/blog_delete_confirm.html'
-    success_url = '/'
+    success_url = reverse_lazy('home')
     login_url = 'login'
+    reverse_lazy = 'blog/home.html'
 
     def test_func(self):
         post = self.get_object()
