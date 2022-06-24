@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     # 3rd party
     'tinymce',
     'crispy_forms',
-    'taggit',
     'rest_framework',
     'corsheaders',
     

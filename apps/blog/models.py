@@ -16,6 +16,10 @@ class Blog(models.Model):
     def count_posts_of(user):
         return Blog.objects.filter(author=user).count()
 
+    @property
+    def get_comments(self):
+        return self.comments.all()
+
     def __str__(self):
         return self.title
 
