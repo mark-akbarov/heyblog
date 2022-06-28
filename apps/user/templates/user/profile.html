@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %} 
+{% block content %}
+<div>
+
+</div>
+
+<div class="card">
+        <img class="card-img-top" src="/media/images/tild6463-6631-4138-a233-356437663966__1zpiy5sq.png" alt="cover">
+        <h2 class="card-title ms-3 mt-lg-3" style="display: inline; align-items: center;">@{{ user.username }}</h2>
+
+        <h4 class="card-text ms-3 mt-3">email: {{ user.email }}</h4>
+
+        <form method='POST' enctype="multipart/form-data"  style="padding: 1em;">
+            {% csrf_token %}
+            
+                <legend class='border-bottom mb-4'>Profile Info</legend>
+                {{ u_form |crispy }}
+                <br>
+                {{ p_form | crispy }}
+
+            <div class='form-group'>
+                <button class='btn btn-reddit mt-3' type='submit'>Update</button>
+            </div>
+        </form>
+        <br>
+        <div style="padding: 1em;">
+            <a href="{% url 'user:logout' %}">
+                <button style="display: inline;" class="btn btn-reddit-white" >Logout</button>
+            </a>    
+        </div>
+        <br>
+
+</div>
+
+<div>
+    <div class="card card-home" style="width: 18rem;">
+        <img src="/media/images/reddit.jpg" class="card-img-top" alt="cover">
+        <div class="card-body">
+          {% if user.is_authenticated %}
+          <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle " style="height: 30px; width: 30px; margin-right: 5px; margin-bottom: 5px; display: inline;"> 
+          {% endif %}
+          <p class="card-title" style="display: inline;">Home</p>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="{% url 'blog_create' %}" class="btn btn-sm btn-reddit-white">Create Post</a>
+        </div>
+      </div>
+</div>
+{% endblock content %}

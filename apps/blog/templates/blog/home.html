@@ -1,0 +1,63 @@
+{% extends 'blog/base.html' %}
+<title>
+    {% block title %}
+         Reddit | Front Page of Internet
+    {% endblock %}
+</title>
+{% block content %}
+<div>
+</div>
+
+<div>
+      {% if request.GET %}
+          {% include 'blog/search.html' %}
+      {% else %}
+      
+      {% for blog in blogs %}
+          <a class="hover-card" href="{% url 'blog_detail' blog.id %}" style="text-decoration: none; color: black">
+              <div class="card mb-1" >
+                  <div class="card-body" >
+                      <p class="card-text text-muted" style="font-size: 12px;"><img class="rounded-circle pfp" src="{{ blog.author.profile.image.url }}" alt="" style="height: 20px; width: 20px; margin-right: 5px;">
+                        @{{ blog.author }} · {{ blog.date|date:"F d, Y" }}
+                      </p>
+                      <strong><p class="card-title">{{ blog.title }}</p></strong>
+                      {% if blog.image %}
+                      <img id="pfp" src="{{ blog.image.url }}" alt="" style="width: 100%;">
+                      {% endif %}
+                      {% if blog.text %}
+                          <p class="card-text mt-3" style="font-size: 14px;" >{{ blog.text|safe }}</p>
+                      {% endif %}
+                  </div>
+                  <div class="card-header">
+                      <!-- <div>
+                        <strong class="text-secondary">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                          </svg>
+                        
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                          </svg>
+                        </strong>
+                      </div> -->
+                      <div class="card-footer-section">
+                        <strong class="text-secondary" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                          </svg>
+                           {{ blog.number_of_comments }} Comment{{ blog.number_of_comments|pluralize }} 
+                        </strong>
+                      </div>
+                      
+                  </div>
+              </div>
+          </a>
+      {% endfor %}
+      {% endif %}
+</div>
+
+  <div>
+      {% include 'blog/sidebar.html' %}
+  </div>
+
+{% endblock content %}
