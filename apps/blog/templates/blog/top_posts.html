@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <div>
+
+  </div> 
+
+  <div class="">
+            <div class="card" style="width: 100%;">
+              <img class="card-img-top" src="/media/images/2w54TaSbpAjXSD65XL65eL.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="font-weight: 600;">Top Posts</h5>
+                <br>
+                  {% get_all_commented_posts as all_commented_posts %}
+                  {% for post in all_commented_posts %}
+                  <div class="top-posts" style="width: 100%; display: inline;">
+                    <p class="card-text" style="font-weight: 600; ">
+                      {{ post.title }} 
+                    </p>
+                    <p class="inline-reddit">
+                      posted by @{{ post.author }} · {{ post.number_of_comments }} Comment{{ post.number_of_comments|pluralize }}
+                    </p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-sm btn-reddit-white inline-reddit btn-reddit-float" style="display: inline;" >
+                      See post
+                    </a> 
+                  <hr>
+                  </div>
+                  {% endfor %}
+                  <br>
+              </div>
+            </div>
+
+  </div>
+
+  <div>
+  </div>
+<br>
+{% endblock %}

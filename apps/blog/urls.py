@@ -1,4 +1,3 @@
-from atexit import register
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from blog.views import *

@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div></div>
+
+<div class='w-50 mt-5 content-section login'>
+        <form method='POST'>
+            
+            <fieldset>
+                <legend class='border-bottom mb-4'>Log In</legend>
+                {{ form | crispy }}
+                {% csrf_token %}
+            </fieldset>
+            <div class='form-group' style="margin: 1em 0;">
+                <button class='btn btn-reddit' type='submit'>Log In</button>
+            </div>
+        </form>
+        <div class='border-top pt-3'>
+            <p class="text-muted" style="align-items: center;">Need An Account?</p>
+            <a class='btn btn-reddit' href="{% url 'user:signup' %}" style="margin-left: 1em;">Join HeyBlog</a>
+        </div>
+</div>
+
+<div>
+    {% include 'blog/sidebar.html' %}
+</div>
+{% endblock content %}

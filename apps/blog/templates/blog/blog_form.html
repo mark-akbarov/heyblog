@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Create Blog{% endblock title%}
+{% block content %}
+
+<div></div>
+
+<div class="blog-form">
+<h2 class="card-title">Write a post</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br>
+    {{ form.media }}
+<button style="margin-top: 1em;" class="btn btn-reddit-white" type="submit">Submit Post</button>
+<br>
+</form>
+</div>
+
+<div>
+    {% include 'blog/sidebar.html' %}
+</div>
+{% endblock content %}
