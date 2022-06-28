@@ -1,5 +1,6 @@
 venv
 media
 static
+conf
 *.pyc
 *templates/

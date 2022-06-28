@@ -23,7 +23,7 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5jfm+s0a)rqrh9lwk3z^#s661z!#=9@e64%n+4_1_2)cz+bv@m'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -98,11 +98,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'reddit_db',
-        'USER': 'reddit_user',
-        'PASSWORD': '2404',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT'),
     }
 }
 
@@ -160,11 +160,4 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'markakbarov@gmail.com'
-EMAIL_HOST_PASSWORD = 'm4rcakbAr0v'
-EMAIL_PORT = 587
 
