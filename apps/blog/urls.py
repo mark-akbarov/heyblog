@@ -1,10 +1,13 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from rest_framework_nested.routers import DefaultRouter, NestedDefaultRouter
 from blog.views import *
+from comment.views import *
 
 router = DefaultRouter()
-router.register('blog', BlogViewSet)
+router.register('blogs', BlogViewSet)
 
-urlpatterns = [
-   path('', include(router.urls))
-]
+posts_router = NestedDefaultRouter(router, 'blogs', lookup='blog')
+posts_router.register('comments', CommentViewSet, basename='blog-comments')
+posts_router.register('reviews', ReplyViewSet, basename='blog-reviews')
+
+
+urlpatterns = router.urls + posts_router.urls
