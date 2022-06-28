@@ -1,4 +1,5 @@
 venv
 media
 conf
+
 *.pyc
