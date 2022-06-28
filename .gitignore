@@ -2,4 +2,4 @@ venv
 media
 *.pyc
 *templates/
-static
+static/
