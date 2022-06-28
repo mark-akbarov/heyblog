@@ -27,3 +27,4 @@ class Blog(models.Model):
         return reverse('blog_detail', kwargs={'pk' : self.pk})
 
 
+__all__ = ['Blog']
