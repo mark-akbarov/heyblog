@@ -5,9 +5,7 @@ from comment.views import *
 router = DefaultRouter()
 router.register('blogs', BlogViewSet)
 
-posts_router = NestedDefaultRouter(router, 'blogs', lookup='blog')
-posts_router.register('comments', CommentViewSet, basename='blog-comments')
-posts_router.register('reviews', ReplyViewSet, basename='blog-reviews')
+blogs_router = NestedDefaultRouter(router, 'blogs', lookup='blog')
+blogs_router.register('comments', CommentViewSet, basename='blog-comments')
 
-
-urlpatterns = router.urls + posts_router.urls
+urlpatterns = router.urls + blogs_router.urls
