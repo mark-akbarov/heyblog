@@ -44,10 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
-    'tinymce',
-    'crispy_forms',
     'rest_framework',
-    'corsheaders',
     
     # local
     'blog',
@@ -55,7 +52,6 @@ INSTALLED_APPS = [
     'comment',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
