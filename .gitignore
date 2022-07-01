@@ -2,5 +2,4 @@ venv
 media
 static/
 *templates/
-*.html
 *.pyc
