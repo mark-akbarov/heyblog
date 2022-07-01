@@ -1,5 +1,5 @@
 venv
 media
 static/
-*templates/
+apps/*templates/
 *.pyc
