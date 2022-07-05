@@ -2,6 +2,7 @@ from rest_framework import serializers
 from blog.models import Blog
 
 class BlogSerializer(serializers.ModelSerializer):
+    author = serializers.StringRelatedField()
     class Meta:
         model = Blog
-        fields = '__all__'
+        fields = ['title', 'text', 'date', 'image', 'author']
