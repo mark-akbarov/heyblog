@@ -11,7 +11,7 @@ class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author')
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     class Meta:
-        ordering = ('-date',)
+        ordering = ['id']
 
     def count_posts_of(user):
         return Blog.objects.filter(author=user).count()
@@ -25,6 +25,3 @@ class Blog(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_detail', kwargs={'pk' : self.pk})
-
-
-__all__ = ['Blog']
