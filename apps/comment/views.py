@@ -1,6 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework.views import APIView
 from comment.serializers import *
 from comment.models import *
 
